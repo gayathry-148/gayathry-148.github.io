@@ -8,150 +8,164 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F9FAF9; /* A slightly off-white for a softer feel */
+            background-color: #F9FAFB;
+            color: #374151;
         }
 
-        .starbucks-green {
-            background-color: #00704A;
-        }
-        
-        .starbucks-green-text {
-            color: #00704A;
-        }
-
-        .starbucks-cream {
-            background-color: #F3F1E7;
-        }
-        
+        .starbucks-green { background-color: #00704A; }
+        .starbucks-green-text { color: #00704A; }
+        .starbucks-cream { background-color: #F3F1E7; }
         .hero-bg {
-            background-image: url('https://www.transparenttextures.com/patterns/subtle-white-feathers.png');
             background-color: #F3F1E7;
+            background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.04"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
         }
 
         .nav-link {
             position: relative;
             transition: color 0.3s ease;
         }
-
         .nav-link::after {
             content: '';
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -4px;
+            bottom: -6px;
             left: 50%;
             transform: translateX(-50%);
             background-color: #00704A;
-            transition: width 0.3s ease;
+            transition: width 0.3s ease-in-out;
         }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
+        .nav-link:hover::after { width: 100%; }
 
         .section-fade-in {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(25px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-
         .section-fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
         
-        .skill-card:hover {
-             background-color: #e5e7eb;
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
         
         .btn-primary {
-            @apply bg-[#00704A] text-white font-semibold py-3 px-6 rounded-full transition-transform transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300;
+            @apply bg-[#00704A] text-white font-bold py-3 px-8 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-300;
         }
-
         .btn-secondary {
-            @apply bg-white text-[#00704A] border border-[#00704A] font-semibold py-3 px-6 rounded-full transition-transform transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-200;
+            @apply bg-transparent text-[#00704A] border-2 border-[#00704A] font-bold py-3 px-8 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-[#00704A] hover:text-white focus:outline-none focus:ring-4 focus:ring-green-200;
         }
         
-        .mobile-menu {
-            display: none;
+        .mobile-menu { display: none; }
+
+        .timeline { position: relative; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 1.25rem;
+            height: 100%;
+            width: 3px;
+            background: #D1D5DB;
+            transform: translateX(-50%);
+        }
+        .timeline-item { position: relative; padding-left: 3.5rem; }
+        .timeline-dot {
+            position: absolute;
+            top: 0.25rem;
+            left: 1.25rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 9999px;
+            background-color: #00704A;
+            border: 3px solid #F3F1E7;
+            transform: translateX(-50%);
         }
     </style>
 </head>
 
-<body class="text-gray-800">
+<body class="text-slate-700">
 
     <!-- Header -->
-    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed w-full top-0 z-50">
+    <header id="header" class="bg-white/90 backdrop-blur-lg shadow-sm fixed w-full top-0 z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="#" class="flex items-center space-x-2">
+                <a href="#home" class="flex items-center space-x-3">
                     <svg class="w-10 h-10 starbucks-green-text" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="48" stroke="currentColor" stroke-width="4" fill="none"/>
-                        <path d="M50 15 L55 35 L75 35 L60 50 L65 70 L50 55 L35 70 L40 50 L25 35 L45 35 Z"/>
+                        <circle cx="50" cy="50" r="48" stroke="#00704A" stroke-width="4" fill="none"/>
+                        <path d="M50 15 L55 35 L75 35 L60 50 L65 70 L50 55 L35 70 L40 50 L25 35 L45 35 Z" fill="#00704A"/>
                     </svg>
-                    <span class="text-2xl font-bold starbucks-green-text">AYG</span>
+                    <span class="text-2xl font-bold starbucks-green-text tracking-wide">AYG</span>
                 </a>
 
-                <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-gray-700 font-medium">Home</a>
-                    <a href="#about" class="nav-link text-gray-700 font-medium">About</a>
-                    <a href="#education" class="nav-link text-gray-700 font-medium">Education</a>
-                    <a href="#projects" class="nav-link text-gray-700 font-medium">Projects</a>
-                    <a href="#experience" class="nav-link text-gray-700 font-medium">Experience</a>
-                    <a href="#certificates" class="nav-link text-gray-700 font-medium">Certificates</a>
-                    <a href="#contact" class="nav-link text-gray-700 font-medium">Contact</a>
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#education" class="nav-link">Education</a>
+                    <a href="#publications" class="nav-link">Publications</a>
+                    <a href="#contact" class="nav-link">Contact</a>
                 </nav>
                 
                 <div class="md:hidden">
-                    <button id="menu-btn" class="text-gray-700 focus:outline-none">
-                        <i data-feather="menu"></i>
+                    <button id="menu-btn" class="text-slate-700 focus:outline-none">
+                        <i data-feather="menu" class="w-7 h-7"></i>
                     </button>
                 </div>
             </div>
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="mobile-menu mt-4">
-                <a href="#home" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Home</a>
-                <a href="#about" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">About</a>
-                <a href="#education" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Education</a>
-                <a href="#projects" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Projects</a>
-                <a href="#experience" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Experience</a>
-                <a href="#certificates" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Certificates</a>
-                <a href="#contact" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Contact</a>
+            <div id="mobile-menu" class="mobile-menu mt-4 md:hidden">
+                 <a href="#home" class="block py-2 px-3 text-base text-slate-700 hover:bg-slate-100 rounded">Home</a>
+                 <a href="#about" class="block py-2 px-3 text-base text-slate-700 hover:bg-slate-100 rounded">About</a>
+                 <a href="#skills" class="block py-2 px-3 text-base text-slate-700 hover:bg-slate-100 rounded">Skills</a>
+                 <a href="#experience" class="block py-2 px-3 text-base text-slate-700 hover:bg-slate-100 rounded">Experience</a>
+                 <a href="#projects" class="block py-2 px-3 text-base text-slate-700 hover:bg-slate-100 rounded">Projects</a>
+                 <a href="#education" class="block py-2 px-3 text-base text-slate-700 hover:bg-slate-100 rounded">Education</a>
+                 <a href="#publications" class="block py-2 px-3 text-base text-slate-700 hover:bg-slate-100 rounded">Publications</a>
+                 <a href="#contact" class="block py-2 px-3 text-base text-slate-700 hover:bg-slate-100 rounded">Contact</a>
             </div>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="min-h-screen hero-bg flex items-center pt-24 md:pt-0">
+        <section id="home" class="min-h-screen hero-bg flex items-center pt-28 pb-16 md:pt-0 md:pb-0">
             <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-                    <div class="md:w-1/2 text-center md:text-left">
-                        <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-                            Amalapurapu <br class="hidden md:block">
+                <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+                    <div class="md:w-3/5 text-center md:text-left">
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight">
+                            Amalapurapu 
                             <span class="starbucks-green-text">Yashaswini Gayathry</span>
                         </h1>
-                        <p class="mt-4 text-lg text-gray-600">
-                            An aspiring Data Analyst with a passion for transforming data into actionable insights and solving practical problems.
+                        <p class="mt-6 text-lg text-slate-600 max-w-xl mx-auto md:mx-0">
+                           Aspiring Data Analyst specializing in SQL, Python, and Google Cloud. Passionate about transforming complex data into clear, actionable insights that drive business success.
                         </p>
-                        <div class="mt-8 flex justify-center md:justify-start space-x-4">
+                        <div class="mt-10 flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
                             <a href="#projects" class="btn-primary">View My Work</a>
                             <a href="https://github.com/gayathry-148/PortFolio-Resume/raw/main/PortFolio%20Resume.pdf" target="_blank" class="btn-secondary">Download CV</a>
                         </div>
                     </div>
-                    <div class="md:w-1/2 flex justify-center">
-                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-white">
-                            <img src="https://placehold.co/400x400/00704A/FFFFFF?text=AYG" alt="Amalapurapu Yashaswini Gayathry" class="w-full h-full object-cover">
+                    <div class="md:w-2/5 flex justify-center">
+                         <div class="relative">
+                            <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl border-8 border-white">
+                                <img src="https://placehold.co/400x400/00704A/F3F1E7?text=AYG" alt="Amalapurapu Yashaswini Gayathry" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute -bottom-4 -right-4 bg-white p-3 rounded-full shadow-lg">
+                                <i data-feather="trending-up" class="w-8 h-8 starbucks-green-text"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -159,103 +173,96 @@
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-20 bg-white section-fade-in">
+        <section id="about" class="py-24 bg-white section-fade-in">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
+                <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold starbucks-green-text">About Me</h2>
                     <div class="w-24 h-1 bg-[#00704A] mx-auto mt-4 rounded"></div>
                 </div>
-                <div class="max-w-3xl mx-auto text-center text-gray-600 leading-relaxed">
-                    <p>I am a dedicated and aspiring Data Analyst with a solid background in SQL, Python, and Google Cloud. I am passionate about using data to find insights and solve practical problems. I'm keen to develop my skills further within a team setting and learn how to turn data into clear, actionable suggestions. My goal is to leverage my analytical abilities to contribute to data-driven decision making and drive business success.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="py-20 starbucks-cream section-fade-in">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold starbucks-green-text">Education</h2>
-                    <div class="w-24 h-1 bg-[#00704A] mx-auto mt-4 rounded"></div>
-                </div>
-                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <i data-feather="award" class="w-12 h-12 starbucks-green-text mx-auto mb-4"></i>
-                        <h3 class="text-xl font-semibold">Bachelor of Technology, CSE (AI&ML)</h3>
-                        <p class="text-gray-600 mt-1">SR University, Warangal</p>
-                        <p class="text-gray-500 text-sm mt-1">2021 - 2025</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <i data-feather="book-open" class="w-12 h-12 starbucks-green-text mx-auto mb-4"></i>
-                        <h3 class="text-xl font-semibold">Intermediate, TSBIE</h3>
-                        <p class="text-gray-600 mt-1">SR Junior College for Girls, Warangal</p>
-                        <p class="text-gray-500 text-sm mt-1">2020 - 2021</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <i data-feather="book" class="w-12 h-12 starbucks-green-text mx-auto mb-4"></i>
-                        <h3 class="text-xl font-semibold">SSC</h3>
-                        <p class="text-gray-600 mt-1">Tejaswi High School, Warangal</p>
-                        <p class="text-gray-500 text-sm mt-1">2018 - 2019</p>
-                    </div>
+                <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                     <div class="md:w-1/3 text-center">
+                        <i data-feather="compass" class="w-24 h-24 text-gray-300"></i>
+                     </div>
+                     <div class="md:w-2/3 text-lg text-slate-600 leading-relaxed">
+                        <p>I am a dedicated and results-oriented Data Analyst with a strong foundation in SQL, Python, and cloud technologies like GCP and Azure. My passion lies in untangling complex datasets to uncover insights that solve real-world problems. </p><br>
+                        <p>I am committed to continuous learning and eager to apply my skills in a collaborative environment, turning data into clear, actionable recommendations that drive strategic decisions.</p>
+                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-20 bg-white section-fade-in">
+        <section id="skills" class="py-24 starbucks-cream section-fade-in">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
+                <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold starbucks-green-text">Technical Skills</h2>
                     <div class="w-24 h-1 bg-[#00704A] mx-auto mt-4 rounded"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Skill Card 1 -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md skill-card transition-all duration-300">
+                    <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
                         <div class="flex items-center mb-4">
                             <i data-feather="database" class="w-8 h-8 starbucks-green-text"></i>
-                            <h3 class="text-xl font-semibold ml-4">Data Analysis & Databases</h3>
+                            <h3 class="text-xl font-semibold ml-4 text-slate-800">Data Analysis & Databases</h3>
                         </div>
-                        <p class="text-gray-600">SQL (PostgreSQL, Google BigQuery), EDA, Hypothesis Testing, Time Series Analysis, Statistical Analysis, Data Cleaning, Pattern Recognition.</p>
+                        <p class="text-slate-600">SQL (PostgreSQL, BigQuery), EDA, Hypothesis Testing, Time Series Analysis, Statistical Analysis, Data Cleaning.</p>
                     </div>
-                    <!-- Skill Card 2 -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md skill-card transition-all duration-300">
+                    <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
                         <div class="flex items-center mb-4">
                             <i data-feather="code" class="w-8 h-8 starbucks-green-text"></i>
-                            <h3 class="text-xl font-semibold ml-4">Programming</h3>
+                            <h3 class="text-xl font-semibold ml-4 text-slate-800">Programming</h3>
                         </div>
-                        <p class="text-gray-600">Python (Pandas, NumPy, Matplotlib).</p>
+                        <p class="text-slate-600">Python (Pandas, NumPy, Matplotlib).</p>
                     </div>
-                    <!-- Skill Card 3 -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md skill-card transition-all duration-300">
+                    <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
                         <div class="flex items-center mb-4">
                             <i data-feather="cloud" class="w-8 h-8 starbucks-green-text"></i>
-                            <h3 class="text-xl font-semibold ml-4">Data Pipelines & Cloud</h3>
+                            <h3 class="text-xl font-semibold ml-4 text-slate-800">Data Pipelines & Cloud</h3>
                         </div>
-                        <p class="text-gray-600">Google Cloud Platform (GCP), GCS, Dataflow, Azure ML Studio.</p>
+                        <p class="text-slate-600">Google Cloud Platform (GCP), GCS, Dataflow, Azure ML Studio.</p>
                     </div>
-                    <!-- Skill Card 4 -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md skill-card transition-all duration-300">
+                    <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
                         <div class="flex items-center mb-4">
                             <i data-feather="bar-chart-2" class="w-8 h-8 starbucks-green-text"></i>
-                            <h3 class="text-xl font-semibold ml-4">Visualization & Spreadsheets</h3>
+                            <h3 class="text-xl font-semibold ml-4 text-slate-800">Visualization & Spreadsheets</h3>
                         </div>
-                        <p class="text-gray-600">Google Looker Studio, Tableau, PowerBI, Excel/Google Sheets (Pivot Tables, VLOOKUP).</p>
+                        <p class="text-slate-600">Looker Studio, Tableau, PowerBI, Excel/Google Sheets (Pivot Tables, VLOOKUP).</p>
                     </div>
-                     <!-- Skill Card 5 -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md skill-card transition-all duration-300">
+                    <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
                         <div class="flex items-center mb-4">
                             <i data-feather="users" class="w-8 h-8 starbucks-green-text"></i>
-                            <h3 class="text-xl font-semibold ml-4">Collaboration Tools</h3>
+                            <h3 class="text-xl font-semibold ml-4 text-slate-800">Collaboration Tools</h3>
                         </div>
-                        <p class="text-gray-600">Proficient in Google Workspace (Gmail, Docs, Sheets, Chrome).</p>
+                        <p class="text-slate-600">Proficient in Google Workspace (Gmail, Docs, Sheets, Chrome).</p>
                     </div>
-                     <!-- Skill Card 6 -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md skill-card transition-all duration-300">
+                    <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
                         <div class="flex items-center mb-4">
                             <i data-feather="trending-up" class="w-8 h-8 starbucks-green-text"></i>
-                            <h3 class="text-xl font-semibold ml-4">Professional Skills</h3>
+                            <h3 class="text-xl font-semibold ml-4 text-slate-800">Professional Skills</h3>
                         </div>
-                        <p class="text-gray-600">Problem-Solving, Critical Thinking, Independent & Team Collaboration, Communication.</p>
+                        <p class="text-slate-600">Problem-Solving, Critical Thinking, Independent & Team Collaboration, Communication.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-24 bg-white section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold starbucks-green-text">Professional Experience</h2>
+                    <div class="w-24 h-1 bg-[#00704A] mx-auto mt-4 rounded"></div>
+                </div>
+                <div class="max-w-3xl mx-auto timeline">
+                    <div class="timeline-item pb-8">
+                        <div class="timeline-dot"></div>
+                        <p class="text-sm font-semibold text-gray-500">Feb 2025 - Jun 2025</p>
+                        <h3 class="text-2xl font-bold text-slate-800 mt-1">Intern - Data Analytics, GCP</h3>
+                        <p class="text-lg font-medium text-gray-600">Accenture</p>
+                        <ul class="mt-4 list-disc list-inside text-slate-600 space-y-2">
+                            <li>Developed and deployed a scalable data pipeline on GCP (BigQuery, Dataflow) for custom analysis of shipping performance.</li>
+                            <li>Built interactive dashboards in Looker Studio and Sheets to translate complex logistics data into actionable recommendations.</li>
+                            <li>Authored comprehensive documentation for data processes and pipeline architecture, enhancing team knowledge sharing.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -473,3 +480,4 @@
 </body>
 
 </html>
+
