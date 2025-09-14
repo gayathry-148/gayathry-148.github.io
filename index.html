@@ -1,136 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-g">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Aspiring Data Analyst</title>
+    <title>Amalapurapu Yashaswini Gayathry | Data Analyst</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
     <style>
-        :root {
-            --bg-color: #FFF8E1;
-            --bg-color-rgb: 255, 248, 225;
-            --text-color: #5D4037;
-            --heading-color: #3E2723;
-            --card-bg-color: #FFFFFF;
-            --border-color: #D7CCC8;
-            --primary-accent: #FF4500;
-            --secondary-accent: #FF00FF;
-            --alert-color: #D32F2F;
-            --tag-bg-color: #f0f0f0;
-            --tag-text-color: #555555;
-            --shadow-color-light: rgba(0, 0, 0, 0.1);
-            --shadow-color-dark: rgba(0, 0, 0, 0.05);
-            --bg-pattern-opacity: 0.1;
-        }
-
-        html.dark {
-            --bg-color: #0a192f;
-            --bg-color-rgb: 10, 25, 47;
-            --text-color: #ccd6f6;
-            --heading-color: #e6f1ff;
-            --card-bg-color: #112240;
-            --border-color: #233554;
-            --primary-accent: #FFD700;
-            --secondary-accent: #FF4500;
-            --alert-color: #FF00FF;
-            --tag-bg-color: #233554;
-            --tag-text-color: #ccd6f6;
-            --shadow-color-light: rgba(255, 215, 0, 0.1);
-            --shadow-color-dark: rgba(255, 215, 0, 0.05);
-            --bg-pattern-opacity: 0.05;
-        }
-
         body {
-            cursor: none;
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.3s ease, color 0.3s ease;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='var(--bg-pattern-opacity)'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        
-        #content-wrapper {
-            position: relative;
-            isolation: isolate; /* Create a new stacking context */
-            overflow-x: clip;
+            background-color: #F9FAF9; /* A slightly off-white for a softer feel */
         }
 
-        /* Particle Canvas for Cursor Effect */
-        #particle-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        #cursor-dot {
-            position: fixed;
-            width: 8px;
-            height: 8px;
-            background-color: white;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 10000;
-            transform: translate(-50%, -50%);
-            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-            box-shadow: 0 0 10px white, 0 0 20px var(--primary-accent);
+        .starbucks-green {
+            background-color: #00704A;
         }
         
-        #cursor-dot.hover {
-            transform: translate(-50%, -50%) scale(1.8);
-            box-shadow: 0 0 15px white, 0 0 30px var(--secondary-accent);
+        .starbucks-green-text {
+            color: #00704A;
         }
 
-        /* Ensure interactive elements have a clear pointer cursor for usability on touch devices, but keep it none for mouse users */
-        a, button {
-            cursor: none;
-        }
-        @media (hover: none) {
-          a, button {
-            cursor: pointer;
-          }
+        .starbucks-cream {
+            background-color: #F3F1E7;
         }
         
-        .theme-gradient-text {
-            background: linear-gradient(to right, var(--secondary-accent), var(--primary-accent), var(--alert-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
+        .hero-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/subtle-white-feathers.png');
+            background-color: #F3F1E7;
         }
-        .card {
-            background-color: var(--card-bg-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px var(--shadow-color-light), 0 4px 6px -2px var(--shadow-color-dark);
-            border-color: var(--primary-accent);
-        }
-        .tag {
-            display: inline-block;
-            background-color: var(--tag-bg-color);
-            color: var(--tag-text-color);
-            padding: 4px 12px;
-            border-radius: 16px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid var(--border-color);
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        }
+
         .nav-link {
             position: relative;
             transition: color 0.3s ease;
-            color: var(--text-color);
         }
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -139,443 +46,334 @@
             bottom: -4px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+            background-color: #00704A;
             transition: width 0.3s ease;
         }
-        .nav-link:hover {
-            color: var(--primary-accent);
-        }
+
         .nav-link:hover::after {
             width: 100%;
         }
-        .section-icon {
-            background: linear-gradient(135deg, color-mix(in srgb, var(--primary-accent) 10%, transparent), color-mix(in srgb, var(--secondary-accent) 10%, transparent));
-            border-radius: 50%;
-            padding: 12px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--border-color);
-            transition: border-color 0.3s ease, background-color 0.3s ease;
+
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        .section-icon svg {
-            stroke: var(--primary-accent);
+
+        .section-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        #header {
-            background-color: color-mix(in srgb, var(--bg-color) 80%, transparent);
-            border-bottom-color: var(--border-color);
-            transition: background-color 0.3s ease, border-color 0.3s ease;
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        .text-heading {
-             color: var(--heading-color);
+        
+        .skill-card:hover {
+             background-color: #e5e7eb;
         }
-        .text-body {
-            color: var(--text-color);
+        
+        .btn-primary {
+            @apply bg-[#00704A] text-white font-semibold py-3 px-6 rounded-full transition-transform transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300;
+        }
+
+        .btn-secondary {
+            @apply bg-white text-[#00704A] border border-[#00704A] font-semibold py-3 px-6 rounded-full transition-transform transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-200;
+        }
+        
+        .mobile-menu {
+            display: none;
         }
     </style>
 </head>
-<body class="antialiased">
-    <!-- Custom Cursor Elements -->
-    <canvas id="particle-canvas"></canvas>
-    <div id="cursor-dot"></div>
 
-    <div id="content-wrapper">
-        <!-- Header -->
-        <header id="header" class="backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b">
-            <div class="container mx-auto px-6 py-4">
-                <div class="flex items-center justify-between">
-                    <a href="#" class="flex items-center gap-2 group focus:outline-none">
-                        <svg class="w-8 h-8 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="url(#logo-gradient)" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="logo-gradient" x1="0%" y1="100%" x2="0%" y2="0%">
-                                    <stop offset="0%" style="stop-color:var(--secondary-accent);" />
-                                    <stop offset="50%" style="stop-color:var(--primary-accent);" />
-                                    <stop offset="100%" style="stop-color:var(--alert-color);" />
-                                </linearGradient>
-                            </defs>
-                            <path d="M12 2C12 2 4 8.5 4 14.5C4 19.939 8.061 24 13.5 24C18.939 24 23 19.939 23 14.5C23 8.5 15 2 15 2C15 2 14.5 5.5 13.5 5.5C12.5 5.5 12 2 12 2Z" transform="rotate(10 12 12)"/>
-                        </svg>
-                        <span class="text-xl font-bold text-heading">Data Analyst</span>
-                    </a>
-                <nav class="hidden md:flex items-center space-x-6">
-                    <a href="#summary" class="nav-link">Summary</a>
-                    <a href="#skills" class="nav-link">Skills</a>
-                    <a href="#projects" class="nav-link">Projects</a>
-                    <a href="#education" class="nav-link">Education</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                    <button id="theme-toggle" class="p-2 rounded-full text-body hover:bg-black/10 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--bg-color)] focus:ring-[var(--primary-accent)]">
-                        <svg id="theme-icon-light" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        <svg id="theme-icon-dark" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                    </button>
+<body class="text-gray-800">
+
+    <!-- Header -->
+    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed w-full top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="flex items-center space-x-2">
+                    <svg class="w-10 h-10 starbucks-green-text" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="48" stroke="currentColor" stroke-width="4" fill="none"/>
+                        <path d="M50 15 L55 35 L75 35 L60 50 L65 70 L50 55 L35 70 L40 50 L25 35 L45 35 Z"/>
+                    </svg>
+                    <span class="text-2xl font-bold starbucks-green-text">AYG</span>
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 font-medium">About</a>
+                    <a href="#projects" class="nav-link text-gray-700 font-medium">Projects</a>
+                    <a href="#experience" class="nav-link text-gray-700 font-medium">Experience</a>
+                    <a href="#contact" class="nav-link text-gray-700 font-medium">Contact</a>
                 </nav>
-                <button id="mobile-menu-button" class="md:hidden text-body focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
+                
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-gray-700 focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
             </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#summary" class="block py-2 text-body">Summary</a>
-            <a href="#skills" class="block py-2 text-body">Skills</a>
-            <a href="#projects" class="block py-2 text-body">Projects</a>
-            <a href="#education" class="block py-2 text-body">Education</a>
-            <a href="#contact" class="block py-2 text-body">Contact</a>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu mt-4">
+                <a href="#home" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Home</a>
+                <a href="#about" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">About</a>
+                <a href="#projects" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Projects</a>
+                <a href="#experience" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Experience</a>
+                <a href="#contact" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Contact</a>
+            </div>
         </div>
     </header>
 
-    <main class="container mx-auto px-6 pt-24 pb-12">
-        <div class="max-w-4xl mx-auto">
-            
-            <!-- Profile Summary Section -->
-            <section id="summary" class="my-16 scroll-mt-24">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="section-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen hero-bg flex items-center pt-24 md:pt-0">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                    <div class="md:w-1/2 text-center md:text-left">
+                        <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+                            Amalapurapu <br class="hidden md:block">
+                            <span class="starbucks-green-text">Yashaswini Gayathry</span>
+                        </h1>
+                        <p class="mt-4 text-lg text-gray-600">
+                            An aspiring Data Analyst with a passion for transforming data into actionable insights and solving practical problems.
+                        </p>
+                        <div class="mt-8 flex justify-center md:justify-start space-x-4">
+                            <a href="#projects" class="btn-primary">View My Work</a>
+                            <a href="https://github.com/gayathry-148/PortFolio-Resume/raw/main/PortFolio%20Resume.pdf" target="_blank" class="btn-secondary">Download CV</a>
+                        </div>
                     </div>
-                    <h2 class="text-3xl font-bold text-heading">Profile Summary</h2>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-white">
+                            <img src="https://placehold.co/400x400/00704A/FFFFFF?text=AYG" alt="Amalapurapu Yashaswini Gayathry" class="w-full h-full object-cover">
+                        </div>
+                    </div>
                 </div>
-                <div class="card p-8">
-                    <p class="text-lg leading-relaxed text-body">
-                        Aspiring Data Analyst currently enrolled in the Scaler DSML program, building a strong foundation in <strong class="font-semibold text-[var(--primary-accent)]">SQL</strong>, <strong class="font-semibold text-[var(--primary-accent)]">Tableau</strong>, and data-driven problem-solving. Proven technical aptitude in <strong class="font-semibold text-[var(--secondary-accent)]">Python</strong> and <strong class="font-semibold text-[var(--alert-color)]">Machine Learning</strong>, now focusing on leveraging Exploratory Data Analysis (EDA) to uncover insights from complex datasets. Eager to apply a blend of analytical rigor and technical skill to support business decisions at Google.
-                    </p>
-                </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Skills Section -->
-            <section id="skills" class="my-16 scroll-mt-24">
-                <div class="flex items-center gap-4 mb-6">
-                     <div class="section-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
-                    </div>
-                    <h2 class="text-3xl font-bold text-heading">Technical Skills</h2>
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-white section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold starbucks-green-text">About Me</h2>
+                    <div class="w-24 h-1 bg-[#00704A] mx-auto mt-4 rounded"></div>
                 </div>
-                <div class="card p-8">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <h3 class="text-lg font-semibold text-heading mb-3">Data Analysis & Databases</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="tag">SQL</span><span class="tag">Exploratory Data Analysis (EDA)</span><span class="tag">Product Analytics</span><span class="tag">Statistics</span><span class="tag">Hypothesis Testing</span>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-heading mb-3">Visualization & Spreadsheets</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="tag">Tableau</span><span class="tag">Microsoft Excel</span><span class="tag">Google Sheets</span>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-heading mb-3">Python Libraries</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-heading mb-3">Machine Learning</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="tag">Linear Regression</span><span class="tag">SVM</span><span class="tag">Random Forest</span><span class="tag">K-Means Clustering</span><span class="tag">MLOps</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="max-w-3xl mx-auto text-center text-gray-600 leading-relaxed">
+                    <p>I am a dedicated and aspiring Data Analyst with a solid background in SQL, Python, and Google Cloud. I am passionate about using data to find insights and solve practical problems. I'm keen to develop my skills further within a team setting and learn how to turn data into clear, actionable suggestions. My goal is to leverage my analytical abilities to contribute to data-driven decision making and drive business success.</p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Projects Section -->
-            <section id="projects" class="my-16 scroll-mt-24">
-                 <div class="flex items-center gap-4 mb-6">
-                    <div class="section-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sparkles"><path d="M12 3L9.88 7.12 6 9l4.12 2.12L12 15l2.12-3.88L18 9l-4.12-1.88L12 3zM21 12l-2.12 4.12L15 18l4.12 2.12L21 24l2.12-3.88L27 18l-4.12-1.88L21 12zM3 12l2.12 4.12L9 18l-4.12 2.12L3 24l-2.12-3.88L-3 18l4.12-1.88L3 12z"/></svg>
-                    </div>
-                    <h2 class="text-3xl font-bold text-heading">Projects</h2>
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 starbucks-cream section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold starbucks-green-text">Technical Skills</h2>
+                    <div class="w-24 h-1 bg-[#00704A] mx-auto mt-4 rounded"></div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Project 1 -->
-                    <div class="card p-6 flex flex-col">
-                        <h3 class="text-xl font-semibold text-heading mb-2">E-Commerce Order Analysis</h3>
-                        <p class="text-body mb-4 flex-grow">Analyzed over 100,000 e-commerce orders to identify sales patterns and customer behavior using complex querying, data merging, and time series analysis.</p>
-                        <div class="mt-auto">
-                           <span class="tag">SQL</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Skill Card 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md skill-card transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-feather="database" class="w-8 h-8 starbucks-green-text"></i>
+                            <h3 class="text-xl font-semibold ml-4">Data Analysis & Databases</h3>
                         </div>
+                        <p class="text-gray-600">SQL (MySQL, BigQuery), EDA, Hypothesis Testing, Time Series Analysis, Statistical Analysis, Data Cleaning, Pattern Recognition.</p>
                     </div>
-                    <!-- Project 2 -->
-                    <div class="card p-6 flex flex-col">
-                        <h3 class="text-xl font-semibold text-heading mb-2">Face Mask Detection & Monitoring</h3>
-                        <p class="text-body mb-4 flex-grow">Evaluated classification models on a Kaggle dataset, achieving 95% accuracy with an SVM model for a reliable monitoring system.</p>
-                        <div class="mt-auto">
-                           <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">EDA</span><span class="tag">SVM</span>
+                    <!-- Skill Card 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md skill-card transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-feather="code" class="w-8 h-8 starbucks-green-text"></i>
+                            <h3 class="text-xl font-semibold ml-4">Programming</h3>
                         </div>
+                        <p class="text-gray-600">Python (Pandas, NumPy, Matplotlib).</p>
                     </div>
-                    <!-- Project 3 -->
-                    <div class="card p-6 flex flex-col">
-                        <h3 class="text-xl font-semibold text-heading mb-2">Image to Data</h3>
-                        <p class="text-body mb-4 flex-grow">Engineered a data pipeline in Azure ML Studio to extract and process visual and textual data from images, achieving a 73% F1-score.</p>
-                         <div class="mt-auto">
-                           <span class="tag">Azure ML</span><span class="tag">Python</span><span class="tag">CNNs</span><span class="tag">BERT</span>
+                    <!-- Skill Card 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md skill-card transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-feather="cloud" class="w-8 h-8 starbucks-green-text"></i>
+                            <h3 class="text-xl font-semibold ml-4">Data Pipelines & Cloud</h3>
                         </div>
+                        <p class="text-gray-600">Google Cloud Platform (GCP), GCS, Dataflow, Azure ML Studio.</p>
                     </div>
-                    <!-- Project 4 -->
-                    <div class="card p-6 flex flex-col">
-                        <h3 class="text-xl font-semibold text-heading mb-2">Scribble to Script</h3>
-                        <p class="text-body mb-4 flex-grow">Analyzed handwritten text by segmenting and classifying characters, words, and lines, achieving 60% validation accuracy.</p>
-                         <div class="mt-auto">
-                           <span class="tag">Python</span><span class="tag">CNN</span><span class="tag">BiLSTM</span>
+                    <!-- Skill Card 4 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md skill-card transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-feather="bar-chart-2" class="w-8 h-8 starbucks-green-text"></i>
+                            <h3 class="text-xl font-semibold ml-4">Visualization & Spreadsheets</h3>
                         </div>
+                        <p class="text-gray-600">Google Looker Studio, Tableau, PowerBI, Excel/Google Sheets (Pivot Tables, VLOOKUP).</p>
+                    </div>
+                     <!-- Skill Card 5 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md skill-card transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-feather="users" class="w-8 h-8 starbucks-green-text"></i>
+                            <h3 class="text-xl font-semibold ml-4">Collaboration Tools</h3>
+                        </div>
+                        <p class="text-gray-600">Proficient in Google Workspace (Gmail, Docs, Sheets, Chrome).</p>
+                    </div>
+                     <!-- Skill Card 6 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md skill-card transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-feather="trending-up" class="w-8 h-8 starbucks-green-text"></i>
+                            <h3 class="text-xl font-semibold ml-4">Professional Skills</h3>
+                        </div>
+                        <p class="text-gray-600">Problem-Solving, Critical Thinking, Independent & Team Collaboration, Communication.</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-             <!-- Education & More -->
-            <section id="education" class="my-16 scroll-mt-24">
-                 <div class="flex items-center gap-4 mb-6">
-                    <div class="section-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-                    </div>
-                    <h2 class="text-3xl font-bold text-heading">Education & Credentials</h2>
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-white section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold starbucks-green-text">Projects</h2>
+                    <div class="w-24 h-1 bg-[#00704A] mx-auto mt-4 rounded"></div>
+                    <p class="mt-4 max-w-2xl mx-auto text-gray-600">Here are some of the key projects I've worked on, showcasing my skills in data analysis, cloud platforms, and machine learning.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Education -->
-                    <div class="card p-6">
-                        <h3 class="text-xl font-semibold text-heading mb-4">Education</h3>
-                        <div class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md project-card transition-all duration-300">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 starbucks-green-text">Freight Flow Optimizer</h3>
+                            <p class="text-gray-600 mb-4">Architected an end-to-end data pipeline on GCP to solve a complex logistics problem, analyzing shipping routes, carrier performance, and cost structures to minimize freight costs.</p>
+                            <a href="https://github.com/gayathry-148" target="_blank" class="font-semibold starbucks-green-text hover:underline">View on GitHub &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Project Card 2 -->
+                    <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md project-card transition-all duration-300">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 starbucks-green-text">Target in Brazil</h3>
+                            <p class="text-gray-600 mb-4">Conducted a comprehensive analysis of over 100,000 e-commerce orders in Google BigQuery, identifying key trends and delivering strategic recommendations to resolve logistical inefficiencies.</p>
+                             <a href="https://github.com/gayathry-148" target="_blank" class="font-semibold starbucks-green-text hover:underline">View on GitHub &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Project Card 3 -->
+                    <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md project-card transition-all duration-300">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 starbucks-green-text">Image to Data</h3>
+                            <p class="text-gray-600 mb-4">Engineered a data extraction pipeline in Azure ML Studio to convert unstructured product images and text into a structured, analyzable dataset, bridging the gap between visual and textual data.</p>
+                             <a href="https://github.com/gayathry-148" target="_blank" class="font-semibold starbucks-green-text hover:underline">View on GitHub &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Project Card 4 -->
+                    <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md project-card transition-all duration-300">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 starbucks-green-text">Scribble to Script</h3>
+                            <p class="text-gray-600 mb-4">Tackled the ambiguous problem of handwriting recognition by working with the complex IAM image dataset, providing data-backed insights into areas for model improvement.</p>
+                             <a href="https://github.com/gayathry-148" target="_blank" class="font-semibold starbucks-green-text hover:underline">View on GitHub &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 starbucks-cream section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold starbucks-green-text">Professional Experience</h2>
+                    <div class="w-24 h-1 bg-[#00704A] mx-auto mt-4 rounded"></div>
+                </div>
+                <div class="max-w-3xl mx-auto">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <div class="flex justify-between items-start">
                             <div>
-                                <h4 class="font-semibold text-heading">Scaler | Data Science & Machine Learning</h4>
-                                <p class="text-sm text-body">2024 - Present</p>
+                                <h3 class="text-2xl font-bold starbucks-green-text">Intern - Data Analytics, GCP</h3>
+                                <p class="text-lg font-medium text-gray-700">Accenture</p>
                             </div>
-                            <div>
-                                <h4 class="font-semibold text-heading">SR University | B.Tech in CSE (AI&ML)</h4>
-                                <p class="text-sm text-body">2021 - 2025</p>
-                            </div>
+                            <span class="text-gray-500 font-medium">Feb 2025 - Jun 2025</span>
                         </div>
-                    </div>
-                    <!-- Certifications -->
-                    <div class="card p-6">
-                        <h3 class="text-xl font-semibold text-heading mb-4">Certifications</h3>
-                        <ul class="list-disc list-inside space-y-2 text-body">
-                            <li>Google UX Design</li>
-                            <li>AWS Cloud Foundations</li>
+                        <ul class="mt-6 list-disc list-inside text-gray-600 space-y-2">
+                            <li>Conducted custom analysis by developing and deploying a scalable data pipeline on Google Cloud Platform.</li>
+                            <li>Used Google Looker Studio and Sheets to build interactive dashboards, distilling complex logistics data into actionable takeaways.</li>
+                            <li>Created documentation for data processes and pipeline architecture to facilitate knowledge sharing within the team.</li>
                         </ul>
                     </div>
-                     <!-- Publication -->
-                    <div class="card p-6 md:col-span-2">
-                        <h3 class="text-xl font-semibold text-heading mb-2">Publication</h3>
-                        <p class="font-semibold text-heading">Ovulation Day Prediction Using Machine Learning</p>
-                        <p class="text-body">Researched and authored a study on predicting ovulation by applying machine learning techniques to menstrual cycle data.</p>
-                    </div>
                 </div>
-            </section>
-            
-            <!-- Contact Section -->
-            <section id="contact" class="my-16 scroll-mt-24 text-center">
-                 <h2 class="text-3xl font-bold text-heading mb-4">Get In Touch</h2>
-                 <p class="max-w-xl mx-auto text-lg text-body mb-8">I'm currently seeking new opportunities and would love to hear from you. Feel free to connect with me on LinkedIn or send me an email.</p>
-                 <div class="flex justify-center items-center gap-4">
-                     <a href="#" class="inline-block relative group">
-                        <span class="absolute -inset-0.5 bg-gradient-to-r from-[var(--primary-accent)] to-[var(--secondary-accent)] rounded-lg blur-sm opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></span>
-                        <span class="relative bg-[var(--card-bg-color)] text-body font-bold py-3 px-6 rounded-lg leading-none flex items-center">
-                            Email Me
-                        </span>
-                     </a>
-                      <a href="#" class="bg-[var(--card-bg-color)] border border-[var(--border-color)] hover:bg-[var(--tag-bg-color)] text-body font-bold py-3 px-6 rounded-lg transition duration-300">
-                         LinkedIn
-                     </a>
-                 </div>
-            </section>
+            </div>
+        </section>
 
-        </div>
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white section-fade-in">
+            <div class="container mx-auto px-6 text-center">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold starbucks-green-text">Get In Touch</h2>
+                    <div class="w-24 h-1 bg-[#00704A] mx-auto mt-4 rounded"></div>
+                    <p class="mt-4 max-w-2xl mx-auto text-gray-600">I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team. Feel free to reach out!</p>
+                </div>
+                <a href="mailto:yashaswini.gayathry@gmail.com" class="text-2xl starbucks-green-text font-medium hover:underline">yashaswini.gayathry@gmail.com</a>
+                <p class="text-gray-600 mt-2">+91 8978547965</p>
+
+                <div class="flex justify-center space-x-6 mt-8">
+                    <a href="https://github.com/gayathry-148" target="_blank" class="text-gray-500 hover:text-[#00704A] transition-colors"><i data-feather="github" class="w-8 h-8"></i></a>
+                    <a href="https://linkedin.com/in/yashaswini219" target="_blank" class="text-gray-500 hover:text-[#00704A] transition-colors"><i data-feather="linkedin" class="w-8 h-8"></i></a>
+                    <a href="https://gayathry-148.github.io" target="_blank" class="text-gray-500 hover:text-[#00704A] transition-colors"><i data-feather="link" class="w-8 h-8"></i></a>
+                </div>
+            </div>
+        </section>
     </main>
-    
-    <footer class="border-t border-[var(--border-color)] text-center py-6 transition-colors duration-300">
-        <p class="text-body">&copy; 2024. Designed with a Diwali theme.</p>
+
+    <!-- Footer -->
+    <footer class="starbucks-green py-6">
+        <div class="container mx-auto px-6 text-center text-white">
+            <p>&copy; 2025 Amalapurapu Yashaswini Gayathry. All Rights Reserved.</p>
+        </div>
     </footer>
-    </div>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+        feather.replace();
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
         });
 
-        // Smooth scroll for anchor links
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.style.display = 'none';
+            });
+        });
+
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                
-                if (href === '#') {
-                     e.preventDefault();
-                     window.scrollTo({ top: 0, behavior: 'smooth' });
-                     return;
-                }
-                
-                if (href && href.length > 1) {
-                    const targetElement = document.querySelector(href);
-                    if (targetElement) {
-                        e.preventDefault();
-
-                        if (!mobileMenu.classList.contains('hidden')) {
-                            mobileMenu.classList.add('hidden');
-                        }
-
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                } else {
-                    e.preventDefault();
-                }
-            });
-        });
-
-        // Theme switcher logic
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIconLight = document.getElementById('theme-icon-light');
-        const themeIconDark = document.getElementById('theme-icon-dark');
-        const htmlEl = document.documentElement;
-
-        let currentTheme = 'light';
-        const getThemeColors = () => {
-            const styles = getComputedStyle(document.documentElement);
-            const primary = styles.getPropertyValue('--primary-accent').trim();
-            const secondary = styles.getPropertyValue('--secondary-accent').trim();
-            const alert = styles.getPropertyValue('--alert-color').trim();
-            return [primary, secondary, alert];
-        };
-
-        const applyTheme = (theme) => {
-            if (theme === 'dark') {
-                htmlEl.classList.add('dark');
-                themeIconLight.classList.add('hidden');
-                themeIconDark.classList.remove('hidden');
-                currentTheme = 'dark';
-            } else {
-                htmlEl.classList.remove('dark');
-                themeIconLight.classList.remove('hidden');
-                themeIconDark.classList.add('hidden');
-                currentTheme = 'light';
-            }
-            // Let CSS apply before getting colors
-            setTimeout(() => {
-                particleColors = getThemeColors();
-            }, 50);
-        };
-        
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            applyTheme('dark');
-        } else {
-            applyTheme('light');
-        }
-
-        themeToggle.addEventListener('click', () => {
-            const newTheme = htmlEl.classList.contains('dark') ? 'light' : 'dark';
-            applyTheme(newTheme);
-            localStorage.setItem('theme', newTheme);
-        });
-        
-        let particleColors = getThemeColors();
-
-        // Particle Trail Cursor Logic
-        if (window.matchMedia("(pointer: fine)").matches) { // Only enable for mouse devices
-            const canvas = document.getElementById('particle-canvas');
-            const ctx = canvas.getContext('2d');
-            const cursorDot = document.getElementById('cursor-dot');
-            
-            let width = canvas.width = window.innerWidth;
-            let height = canvas.height = window.innerHeight;
-            
-            window.addEventListener('resize', () => {
-                width = canvas.width = window.innerWidth;
-                height = canvas.height = window.innerHeight;
-            });
-
-            let mouse = { x: -100, y: -100 };
-            let particles = [];
-            let isHovering = false;
-
-            document.addEventListener('mousemove', (e) => {
-                mouse.x = e.clientX;
-                mouse.y = e.clientY;
-                cursorDot.style.left = `${e.clientX}px`;
-                cursorDot.style.top = `${e.clientY}px`;
-            });
-            
-            const interactiveElements = document.querySelectorAll('a, button');
-            interactiveElements.forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    isHovering = true;
-                    cursorDot.classList.add('hover');
-                });
-                el.addEventListener('mouseleave', () => {
-                    isHovering = false;
-                    cursorDot.classList.remove('hover');
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
+        });
+        
+        // Section fade-in on scroll
+        const sections = document.querySelectorAll('.section-fade-in');
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
 
-
-            class Particle {
-                constructor(x, y) {
-                    this.x = x;
-                    this.y = y;
-                    this.radius = Math.random() * (isHovering ? 4.5 : 3.5) + 1;
-                    this.life = 1;
-                    this.color = particleColors[Math.floor(Math.random() * particleColors.length)];
-                    const angle = Math.random() * Math.PI * 2;
-                    const speed = Math.random() * (isHovering ? 5 : 3);
-                    this.vx = Math.cos(angle) * speed;
-                    this.vy = Math.sin(angle) * speed;
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
+            });
+        }, options);
 
-                update() {
-                    this.x += this.vx;
-                    this.y += this.vy;
-                    this.life -= 0.025;
-                    this.radius *= 0.96;
-                    this.vx *= 0.95;
-                    this.vy *= 0.95;
-                }
+        sections.forEach(section => {
+            observer.observe(section);
+        });
 
-                draw() {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = this.color;
-                    ctx.globalAlpha = this.life;
-                    ctx.fill();
-                    ctx.closePath();
-                }
-            }
-
-            function animate() {
-                // Fading trail effect
-                const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-color-rgb').trim();
-                ctx.fillStyle = `rgba(${bgColor}, 0.2)`;
-                ctx.fillRect(0, 0, width, height);
-                ctx.globalAlpha = 1;
-
-                const particleCount = isHovering ? 5 : 2;
-                for(let i = 0; i < particleCount; i++) {
-                    particles.push(new Particle(mouse.x, mouse.y));
-                }
-                
-                for (let i = particles.length - 1; i >= 0; i--) {
-                    const p = particles[i];
-                    p.update();
-                    p.draw();
-                    if (p.life <= 0 || p.radius <= 0.2) {
-                        particles.splice(i, 1);
-                    }
-                }
-                
-                requestAnimationFrame(animate);
-            }
-
-            animate();
-
-        } else {
-            // On touch devices, revert to default cursor
-            document.body.style.cursor = 'auto';
-        }
     </script>
-
 </body>
-</html>
 
+</html>
